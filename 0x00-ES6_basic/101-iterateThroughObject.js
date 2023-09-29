@@ -3,7 +3,12 @@ export default function iterateThroughObject(reportWithIterator) {
 
   let iteratorResult = reportWithIterator.next();
   while (!iteratorResult.done) {
-    employeeNames.push(iteratorResult.value);
+    const department = iteratorResult.value;
+    for (const employees of Object.values(department)) {
+      for (const employee of employees) {
+        employeeNames.push(employee);
+      }
+    }
     iteratorResult = reportWithIterator.next();
   }
 
